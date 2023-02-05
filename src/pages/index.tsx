@@ -2,10 +2,23 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import {useEffect} from "react";
+import {ChatKitty} from "@chatkitty/core";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  useEffect(() => {
+    const chatkitty = ChatKitty.getInstance('afaac908-1db3-4b5c-a7ae-c040b9684403');
+
+    chatkitty.startSession({
+      username: 'c6f75947-af48-4893-a78e-0e0b9bd68580',
+    }).then(result => {
+      console.log(result);
+    });
+
+  }, []);
+
   return (
     <>
       <Head>
